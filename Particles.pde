@@ -3,14 +3,16 @@ class Particles extends Spaceship
    protected  double myX, myY, mySize, mySpeed, myAngle;
   protected int myColor, myOpacity;
   Particles(double angle) {
-    myX=Bob.getCenterX(); //how to get the updated centerX
-    myY=Bob.getCenterY();
-   
+    for(int i = 0; i<Bob.length; i++){
+    myX=Bob[i].getCenterX(); //how to get the updated centerX
+    myY=Bob[i].getCenterY();
+    }
     mySize=5;
     myColor=color((int)(Math.random()*256), (int)(Math.random()*256), (int)(Math.random()*256));
     mySpeed=(int)(Math.random()*10);
-    myAngle=((Math.random()*angle))*Math.PI-Bob.getRadians();
+   myAngle=((Math.random()*angle))*Math.PI;
     myOpacity=(int)(Math.random()*40)+60;
+    
   }
 
   void move() {
